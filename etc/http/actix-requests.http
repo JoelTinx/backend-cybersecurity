@@ -1,0 +1,16 @@
+### GET request to example server
+GET http://127.0.0.1:2424/public-view
+
+### POST get token
+POST http://127.0.0.1:2424/get-token
+Content-Type: application/json
+
+{
+  "email": "djoelplay@gmail.com"
+}
+
+> {% client.global.set("auth_token", response.body.data.token); %}
+
+### GET secret to example server
+GET http://127.0.0.1:2424/secret-view
+Authorization: Bearer {{auth_token}}
